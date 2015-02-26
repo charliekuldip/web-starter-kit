@@ -1,0 +1,47 @@
+// CAR LINE
+@-webkit-keyframes moveFlagLine {
+    0%   { -webkit-transform: translate3d(0,0,0); }    
+    100% { -webkit-transform: translate3d(-50%,0,0); }
+}
+@-moz-keyframes moveFlagLine {
+    0%   { -moz-transform: translate3d(0,0,0); }    
+    100% { -moz-transform: translate3d(-50%,0,0); }
+}
+
+
+#flag-line-container {
+    position: absolute;
+    // top: 75.35%;
+    top: 71.75%;
+    width:100%;
+    overflow-x:hidden;
+    z-index: -1;
+    
+    @include prefix(transform, translate3d(0,0,0));
+    @media(min-width: 1400px) { 
+        // top: 1875px; 
+        top: 1795px;
+    }
+
+    > ul { 
+        width:200%;
+        position: relative;
+        @include prefix(transform, translate3d(0,0,0));
+    }
+
+    .flag-line {
+        width: 50%;
+        float: left;
+        
+        > img {
+            width:100%;
+            display: block;
+            margin:0 auto; padding:0;
+        }
+    }
+}
+
+// SEPARATING ANIMATION INTO ITS OWN CLASS
+.animate-flag-line {
+    @include prefix(animation, moveFlagLine 16s linear infinite);    
+}

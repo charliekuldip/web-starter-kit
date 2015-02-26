@@ -1,0 +1,20 @@
+// RED CAR
+.red-car {
+    background-image:url('../img/car.png');
+    @include prefix(background-size, cover); 
+    background-position: 50% 50%; background-repeat:no-repeat;
+    width:26.63%; max-width: 373px;
+    height: 0; padding-bottom: 22.543%;
+
+    position: absolute;
+    top:18.4%; right:0;
+    
+    @include prefix(transform, translate3d(0,0,0));
+    @include prefix(transition, right 500ms ease-out);
+    @include prefix(transition, transform 100ms ease-out);
+
+    @media(min-width: 1400px) { 
+        padding-bottom: 315px; 
+        top:460px;
+    }
+}

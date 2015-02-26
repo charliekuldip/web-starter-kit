@@ -1,0 +1,44 @@
+// GREY-LINES
+// @-webkit-keyframes rotateGreyLines {
+//     0%   { -webkit-transform: rotate(0); }    
+//     100% { -webkit-transform: rotate(360deg); }
+// }
+// @-moz-keyframes rotateGreyLines {
+//     0%   { -moz-transform: rotate(0); }    
+//     100% { -moz-transform: rotate(360deg); }
+// }
+
+// .animate-grey-lines {
+//     @include prefix(animation, rotateGreyLines 2s linear infinite);    
+// }
+
+.grey-lines-container {
+    position: absolute;
+    width: 25.7448%; max-width: 360px; height:0; padding-bottom: 25.7458%;
+    top: 180.8%; left: 57.75%;
+    background-color: rba(255, 0, 0, 0.5);
+}
+
+.grey-front {
+    background-image:url('../img/animate/grey-car-front.png');
+    @include prefix(background-size, cover); 
+    background-position: 50% 50%; background-repeat:no-repeat;
+
+}
+
+.grey-lines {
+    background-image:url('../img/animate/circle-lines.png');
+    @include prefix(background-size, cover); 
+    background-position: 50% 50%; background-repeat:no-repeat;
+    width:100%; padding-bottom: 100%; margin-top:3%;
+
+    @include prefix(transform, translate3d(0,0,0));
+}
+
+.svg .grey-lines {
+    background-image:url('../img/animate/circle-lines.svg');
+}
+
+@media(min-width: 1400px) {
+    .grey-lines-container {padding-bottom: 360px; top: 4530px; }
+}

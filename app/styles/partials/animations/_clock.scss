@@ -1,0 +1,106 @@
+// CLOCK
+#clock { 
+    width:11.6666667%; max-width: 164px;
+    height: 0; padding-bottom: 11.6666667%;
+    
+    margin: 0 auto;
+	position: absolute; 
+    top: 64%; right: 20.5%;
+
+    background-image: url('../img/animate/clock-face.png');
+	@include prefix(background-size, cover);
+    background-position: 50% 50%; background-repeat: no-repeat;
+
+    @media(min-width: 1400px) { 
+    	top: 41.75%; 
+    	padding-bottom: 11.6666667%;
+    }
+
+    @include prefix(border-radius, 50%);
+} 
+
+#clock:after { 
+    content: '';
+    width:100%; height: 0;
+    position: absolute; 
+    bottom:-5.83333334%;
+    left: 0;
+    z-index: -1; 
+
+    @include prefix(border-radius, 50%);
+} 
+
+#clock:before { 
+    content: ''; 
+    position: absolute; 
+    left: 50%; top: 50%; 
+    z-index: 2; 
+    width:6.6666667%;
+    height: 0; padding-bottom: 6.6666667%;
+    background: #000; 
+    margin: -3.3333334% 0 0 -3.3333334%; 
+
+    @include prefix(border-radius, 50%);
+} 
+
+/* Hands */ 
+#clock span.hand { 
+    background: #000; 
+    position: absolute; 
+    left: 50%; 
+
+    @include prefix(transform-origin, left bottom);
+    @include prefix(animation, rotate 60s infinite linear);
+} 
+
+#clock span.hand.second {  
+    width:1.6666667%; min-width:1px;
+    height: 0; padding-bottom: 41.6666667%; 
+    margin-left: 0.83333334%; 
+    top: 8.3333334%;
+    background-color:#ED1C24;
+    z-index: 10;
+} 
+
+#clock span.hand.minute { 
+    height:0; padding-bottom:33.3333334%;
+    width: 3.333333%; min-width: 1px;    
+    margin-left: -1.6666667%; 
+    top:16.6666667%;
+
+    @include prefix(animation-duration, 3600s);
+} 
+
+#clock span.hand.hour { 
+    width:5%; min-width: 2px;
+    height:0; padding-bottom: 25%; 
+    margin-left:-2.5%;
+    top:25%; 
+
+    @include prefix(animation-duration, 84600s);
+} 
+
+@-webkit-keyframes rotate { 
+    0% { -webkit-transform: rotate(0deg);} 
+    100% { -webkit-transform: rotate(360deg);} 
+}     
+
+@-moz-keyframes rotate { 
+    0% { -moz-transform: rotate(0deg);} 
+    100% { -moz-transform: rotate(360deg);} 
+}     
+
+@-ms-keyframes rotate { 
+    0% { -ms-transform: rotate(0deg);} 
+    100% { -ms-transform: rotate(360deg);} 
+}     
+
+@-o-keyframes rotate { 
+    0% { -o-transform: rotate(0deg);} 
+    100% { -o-transform: rotate(360deg);} 
+}     
+
+@keyframes rotate { 
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(360deg);} 
+}  

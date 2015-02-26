@@ -1,0 +1,58 @@
+// CAR LINE
+@-webkit-keyframes moveCarLine {
+    0%   { -webkit-transform: translate3d(-50%,0,0); }    
+    100% { -webkit-transform: translate3d(0,0,0); }
+}
+@-moz-keyframes moveCarLine {
+    0%   { -moz-transform: translate3d(-50%,0,0); }    
+    100% { -moz-transform: translate3d(0,0,0); }
+}
+
+@-ms-keyframes moveCarLine { 
+    0%   { transform: translate3d(-50%,0,0); }    
+    100% { transform: translate3d(0,0,0); }
+} 
+
+@-o-keyframes moveCarLine { 
+    0%   { transform: translate3d(-50%,0,0); }    
+    100% { transform: translate3d(0,0,0); }
+}    
+
+@keyframes moveCarLine {
+    0%   { transform: translate3d(-50%,0,0); }    
+    100% { transform: translate3d(0,0,0); }
+}
+
+
+#car-line-container {
+    position: absolute;
+    top: 55.35%;
+    width:100%;
+    overflow-x:hidden;
+    
+    @include prefix(transform, translate3d(0,0,0));
+    @media(min-width: 1400px) { top: 1374px; }
+
+    > ul { 
+        width:200%;
+        position: relative;
+
+        @include prefix(transform, translate3d(-50%,0,0));
+    }
+
+    .car-line {
+        width: 16.66666666666667%;
+        float: left;
+        
+        > img {
+            width:100%;
+            display: block;
+            margin:0 auto; padding:0;
+        }
+    }
+}
+
+// SEPARATING ANIMATION INTO ITS OWN CLASS
+.animate-car-line {
+    @include prefix(animation, moveCarLine 8s linear infinite);    
+}

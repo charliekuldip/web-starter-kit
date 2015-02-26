@@ -1,0 +1,112 @@
+// CRAZY DAYS
+body {
+	background-color:black;
+}
+
+h1, h2 {
+	color:white;
+	font-family: sans-serif;
+	font-weight: 500;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: .15em;
+	line-height: 1.5em;
+}
+
+h1 {
+	font-size: 5.75em;
+	font-size: 12vw;
+	font-weight: 800;
+}
+
+h2 {
+	font-size: 4em;
+	font-size: 10vw;
+}
+
+
+.center-text {
+	padding: 5.75em 0;
+}
+
+.img-holder {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	// padding-bottom: 100%;
+	padding-bottom: 56.25%;
+
+	@media(min-width: 1200px) {
+		padding-bottom: 720px;
+	}
+
+	> img {
+		width: 100%;
+		display: block;
+		// position: absolute;
+		position: absolute;
+		top:0; left:0; right:0; 
+		margin: auto;
+		z-index: 3;
+
+		@include prefix(transform, translate3d(0,0,3));
+
+		@include prefix(transition, translate3d 33ms ease-out);
+
+		@media(min-width: 1200px) {
+			width:1280px; height: 720px;
+		}
+	}
+}
+
+.geometric-sun.img-holder {
+	img {
+		position: fixed;
+	}
+}
+
+#container {
+	// background-color:rgba(250, 250, 250, 0.5);
+	position: relative;
+	z-index: 5;
+	@include prefix(transform, translate3d(0,0,5));	
+	@include prefix(transition, translate3d 33ms ease-out);
+}
+
+
+#container2 {
+	// background-color:rgba(250, 250, 250, 0.5);
+	background-color:black;
+	position: relative;
+	z-index: 2;
+	@include prefix(transform, translate3d(0,0,2));	
+
+	@include prefix(transition, translate3d 33ms ease-out);
+}
+
+.geometric {
+	position: relative;
+	width: 100%;
+
+	> img {
+		width: 100%;
+	}
+}
+
+#geometric {
+	position: fixed;
+	top:0; left:0; right:0;
+	margin: auto;
+	z-index: 0;
+
+	@include prefix(transform, translate3d(0,0,0px));
+	@include prefix(transition, translate3d 33ms ease-out);
+
+	@media(min-width: 1200px) {
+		width:1280px; height: 720px;
+	}
+
+	// > img {
+	// 	width: 100%;
+	// }
+}

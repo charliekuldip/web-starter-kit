@@ -1,0 +1,5 @@
+.app-bar {
+	z-index:20;
+
+	@include prefix(transform, translate3d(0,0,20));
+}

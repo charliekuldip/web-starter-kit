@@ -1,0 +1,52 @@
+// GREY-CAR and WHEELS
+
+@-webkit-keyframes rotateTires {
+    0%   { -webkit-transform: rotate(0); }    
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotateTires {
+    0%   { -moz-transform: rotate(0); }    
+    100% { -moz-transform: rotate(360deg); }
+}
+
+.animate-tires {
+    @include prefix(animation, rotateTires 2s linear infinite);    
+}
+
+
+.grey-car {
+    background-image:url('../img/animate/grey-car.png');
+    @include prefix(background-size, cover); 
+    background-position: 50% 50%; background-repeat:no-repeat;
+    width:33.37%; max-width: 467px;
+    height:0; padding-bottom:21.5714%;
+
+    position: absolute;
+    top: 78.6%; left: 33%;
+
+    @include prefix(transform, translate3d(0,0,0));
+    @include prefix(transition, left 0.05s ease-out);
+
+	@media(min-width: 1400px) {
+		padding-bottom: 263px; top: 51.75%;
+	}
+
+    .wheel {
+        background-image:url('../img/animate/wheel.png');
+        @include prefix(background-size, cover);
+        background-position: 50% 50%; background-repeat:no-repeat;
+        width:9.933775%; padding-bottom: 9.602649%;
+        position: absolute;
+        bottom:26.5%;
+        @media(min-width: 1400px) { bottom:67px; }
+    }
+
+    .front-wheel { 
+        right: 18.5%; 
+        @media(min-width: 1400px) { right:102px; }
+    }
+    .back-wheel { 
+        left: 22.5%; 
+        @media(min-width: 1400px) { left: 119px; }
+    }
+}

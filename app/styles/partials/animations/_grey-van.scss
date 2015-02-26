@@ -1,0 +1,37 @@
+// GREY-VAN
+.grey-van-container {
+    position: absolute;
+    top: 200.5%; left:0;    
+    width: 100%; padding-bottom: 10.571429%; height:auto;
+    overflow: hidden;
+
+    @include prefix(transform, translate3d(0,0,0));
+    @media(min-width: 1400px) { top: 5013px; } 
+}
+
+.grey-van {
+    background-color: #f6f7f8;
+    background-image:url('../img/animate/grey-van-birds-eye.png');
+    @include prefix(background-size, cover); 
+    background-position: 50% 50%; background-repeat:no-repeat;
+    width:22.6519335%; max-width: 317px;
+    height: 0; 
+    padding-bottom: 10.571429%;
+
+    position: absolute;
+    left:0;
+
+    @include prefix(transform, translate3d(0,0,0));
+    @include prefix(transition, left 100ms ease-out);
+    @include prefix(transition, transform 100ms ease-out);
+
+    &:before {
+        content:"";
+        display: block;
+        padding-bottom: 47%;
+        width:250%;
+        background-color:#f6f7f8;
+        position: absolute;
+        left:100%;
+    }
+}
