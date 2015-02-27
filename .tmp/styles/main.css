@@ -1,0 +1,150 @@
+/*
+ * Web Starter Kit
+ *
+ * Multi-screen layout styles for your page. Brought to you by the
+ * Web Starter Kit team.
+ *
+ */
+body {
+  position: relative;
+}
+
+.page-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */
+}
+
+body {
+  background-color: black;
+}
+
+h1, h2 {
+  color: white;
+  font-family: sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .15em;
+  line-height: 1.5em;
+}
+
+h1 {
+  font-size: 5.75em;
+  font-size: 12vw;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 4em;
+  font-size: 10vw;
+}
+
+.center-text {
+  padding: 5.75em 0;
+}
+
+.img-holder {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+@media (min-width: 1200px) {
+  .img-holder {
+    padding-bottom: 720px;
+  }
+}
+.img-holder > img {
+  width: 100%;
+  display: block;
+  margin: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: translate3d 33ms ease-out;
+  transition: translate3d 33ms ease-out;
+}
+@media (min-width: 1200px) {
+  .img-holder > img {
+    width: 1280px;
+    height: 720px;
+  }
+}
+
+#container {
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: translate3d 33ms ease-out;
+  transition: translate3d 33ms ease-out;
+}
+
+#container2 {
+  background-color: black;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: translate3d 33ms ease-out;
+  transition: translate3d 33ms ease-out;
+}
+
+.geometric {
+  position: relative;
+  width: 100%;
+}
+.geometric > img {
+  width: 100%;
+}
+
+#geometric {
+  margin: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: translate3d 33ms ease-out;
+  transition: translate3d 33ms ease-out;
+}
+@media (min-width: 1200px) {
+  #geometric {
+    width: 1280px;
+    height: 720px;
+  }
+}
+
+#geometric-sun {
+  position: absolute;
+  right: 0;
+  width: 1280px;
+  height: 720px;
+}
+
+.app-bar {
+  z-index: 20;
+  -webkit-transform: translate3d(0, 0, 20);
+  transform: translate3d(0, 0, 20);
+}
+
+.geo-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+  border-left: 5px solid red;
+  border-right: 5px solid red;
+}
