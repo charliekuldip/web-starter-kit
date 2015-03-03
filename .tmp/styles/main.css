@@ -7,6 +7,7 @@
  */
 body {
   position: relative;
+  background-color: black;
 }
 
 .page-container {
@@ -14,25 +15,6 @@ body {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  zoom: 1;
-  /* For IE 6/7 (trigger hasLayout) */
-}
-
-body {
-  background-color: black;
 }
 
 h1, h2 {
@@ -60,91 +42,49 @@ h2 {
   padding: 5.75em 0;
 }
 
-.img-holder {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding-bottom: 56.25%;
-}
-@media (min-width: 1200px) {
-  .img-holder {
-    padding-bottom: 720px;
-  }
-}
-.img-holder > img {
-  width: 100%;
-  display: block;
-  margin: auto;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-transition: translate3d 33ms ease-out;
-  transition: translate3d 33ms ease-out;
-}
-@media (min-width: 1200px) {
-  .img-holder > img {
-    width: 1280px;
-    height: 720px;
-  }
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
 }
 
-#container {
-  position: relative;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-transition: translate3d 33ms ease-out;
-  transition: translate3d 33ms ease-out;
+.clearfix:after {
+  clear: both;
 }
 
-#container2 {
-  background-color: black;
-  position: relative;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-transition: translate3d 33ms ease-out;
-  transition: translate3d 33ms ease-out;
-}
-
-.geometric {
-  position: relative;
-  width: 100%;
-}
-.geometric > img {
-  width: 100%;
-}
-
-#geometric {
-  margin: auto;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-transition: translate3d 33ms ease-out;
-  transition: translate3d 33ms ease-out;
-}
-@media (min-width: 1200px) {
-  #geometric {
-    width: 1280px;
-    height: 720px;
-  }
-}
-
-#geometric-sun {
-  position: absolute;
-  right: 0;
-  width: 1280px;
-  height: 720px;
-}
-
-.app-bar {
-  z-index: 20;
-  -webkit-transform: translate3d(0, 0, 20);
-  transform: translate3d(0, 0, 20);
+.clearfix {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */
 }
 
 .geo-container {
   width: 100%;
-  max-width: 1000px;
+  max-width: 872px;
   margin: 0 auto;
   position: relative;
   overflow-x: hidden;
-  border-left: 5px solid red;
-  border-right: 5px solid red;
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#geometric-sun {
+  position: absolute;
+  right: 280px;
+  width: 100%;
+  display: block;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: translate3d 33.333333ms ease-out;
+  transition: translate3d 33.333333ms ease-out;
+}
+
+.geometric-sun {
+  width: 1279px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: relative;
 }

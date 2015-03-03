@@ -1,6 +1,7 @@
 // BASE
 body {
     position: relative;
+    background-color:black;
 }
 
 .page-container {
@@ -9,3 +10,23 @@ body {
 	margin:0 auto;
 	// overflow-x:hidden;
 }
+
+
+h1, h2 {
+	color:white;
+	font-family: sans-serif;
+	font-weight: 500;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: .15em;
+	line-height: 1.5em;
+}
+
+h1 {
+	font-size: 5.75em; font-size: 12vw;
+	font-weight: 800;
+}
+
+h2 { font-size: 4em; font-size: 10vw; }
+
+.center-text { padding: 5.75em 0; }

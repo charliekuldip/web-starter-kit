@@ -33,8 +33,9 @@ h2 { font-size: 4em; font-size: 10vw; }
 		display: block;
 		// position: absolute;
 		// top:0; left:0; right:0; 
-		margin: auto;
-		@include prefix(transform, translate3d(0,0,0));
+		// margin: auto;
+		// @include prefix(transform, translate3d(0,0,0));
+
 		@include prefix(transition, translate3d 33ms ease-out);
 
 		@media(min-width: 1200px) { width:1280px; height: 720px; }

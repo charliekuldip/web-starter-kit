@@ -13,8 +13,8 @@ function prefixTransform(element, property) {
 	// WINDOW VARS
 	var windowHeight =  Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
 		windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-		docViewTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop,
-		docViewBottom = docViewTop + windowHeight,
+		docScrolled = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop,
+		docViewBottom = docScrolled + windowHeight,
 		css3dtransforms = true,
 		htmlClass = document.getElementsByTagName('HTML')[0].attributes.class.value,
 		scrollTimeout,
@@ -26,8 +26,8 @@ function prefixTransform(element, property) {
 	function updateWindowSpecs() {
 			windowWidth = Math.round(Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
 			windowHeight = Math.round(Math.max(document.documentElement.clientHeight, window.innerHeight || 0));
-			docViewTop = Math.round((window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop);
-			docViewBottom = docViewTop + windowHeight;
+			docScrolled = Math.round((window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop);
+			docViewBottom = docScrolled + windowHeight;
 	}
 
 	// TEST FOR 3D TRANSFORMS
@@ -40,6 +40,10 @@ function prefixTransform(element, property) {
 		var elem = elem,
 			options = options || {},
 			move,
+			scrollArea,
+			userScroll,
+			stepping,
+			percent,
 			slideBgDown,
 			property,
 			_t = this;
@@ -50,16 +54,23 @@ function prefixTransform(element, property) {
 		
 		this.elementWidth = this.$element.offsetWidth;
 		this.elementHeight = this.$element.offsetHeight;
-		this.elementTop = this.$element.offsetTop;
+		// IF OFFSET TOP IS 0, GET PARENT OFFSET
+		this.elementTop = this.$element.offsetTop ? this.$element.offsetTop : this.$element.offsetParent.offsetTop; 
 		this.elementBottom = this.elementHeight + this.elementTop;
+		this.scrollInView = windowHeight - this.elementTop;
+
+		// console.log('Thisi is this.scrollInView: ' + this.scrollInView);
 
 		// options
 		this.animStart = options.animStart || 0;
 		this.animEnd = options.animEnd || windowWidth;
+		this.animDistance = options.animDistance || false;
+
+		// console.log('This is animDistance: ' + this.animDistance);
 
 		// M E T H O D S
 		this.getScrollTop = function() {
-			return docViewTop;
+			return docScrolled;
 		};
 
 		this.getWinWidth = function() {
@@ -74,12 +85,12 @@ function prefixTransform(element, property) {
 		// IN VIEW FOR #GREY-CAR
 		this.isInView = function() {
 
-			return ( (this.elementTop <= docViewBottom) && (this.elementBottom >= docViewTop) );
+			return ( (this.elementTop <= docViewBottom) && (this.elementBottom >= docScrolled) );
 		};
 
 		// IN VIEW FOR #RED-CAR
 		this.redCarInView = function() {
-			if(docViewTop-this.elementWidth-this.elementHeight > this.elementBottom) {
+			if(docScrolled-this.elementWidth-this.elementHeight > this.elementBottom) {
 				return false;
 			} else {
 				return true;
@@ -88,38 +99,50 @@ function prefixTransform(element, property) {
 
 		// IN VIEW FOR #GEO-SUN
 		this.geoSunInView = function() {
-			move = Math.round(Math.cos(33.45) * docViewTop * -1);
-			if(move < Math.round(windowHeight * 1.1)) {
+			// CHECK FOR BOUNDARY
+			if( (this.elementTop <= docViewBottom) && (this.elementBottom >= docScrolled) ) {
+				// console.log('This is true Mahn!');
+
 				return true;
 			} else {
+				// console.log('This is FALSE Mahn!');
 				return false;
 			}
 		};
 
 		// ANIMATE FUNCTION - TEST FOR CSS3 TRANSFORMS
+		// HERE YOU ARE GOING TO DEFINE WHEN AND WHERE
 		if(css3dtransforms) {
 			this.animateGeoSun = function() {
-				slideBgDown = Math.round(Math.cos(33.45) * docViewTop * -1 );
-				// property = 'translate3d(0px, '+ slideBgDown +'px, 0)'
-				property = 'translate3d('+ slideBgDown +'px, 0, 0)';
+				scrollArea = windowHeight - (windowHeight - this.elementTop) + this.elementHeight;
+				userScroll = docScrolled;
+				percent = docScrolled/scrollArea;
+				move = Math.round(this.animDistance * percent);
+
+				// slideBgDown = Math.round(Math.cos(33.45) * docScrolled * -1 );
+				property = 'translate3d('+ move +'px, 0, 0)';
 				prefixTransform(this.$element, property );
 			}
 			
 		} else {
 			this.animateGeoSun = function() {
-				this.$element.style.top = this.$element.style.top + ( Math.cos(33.45) * (Math.round(docViewTop)) * -1 ) +'px';
+				this.$element.style.top = this.$element.style.top + ( Math.cos(33.45) * (Math.round(docScrolled)) * -1 ) +'px';
 			}
 		}		
 	} // END OBJECT ANIMATE
 
 
 	// LIST VARS
-	var Geo,
+	var geoOptions,
 		GeoSun;
 
+	// GEO SUN OPTIONS
+	geoOptions = {
+		animDistance:280
+	}
+
 	// ANIMATABLE OBJECTS
-	GeoSun = new AnimatedElement('geometric-sun');
-	Geo = new AnimatedElement('geometric');
+	GeoSun = new AnimatedElement('geometric-sun', geoOptions);
 	
 
 	// W I N D O W    E V E N T S
@@ -157,7 +180,7 @@ function prefixTransform(element, property) {
 			
 			// CHECK FOR GEO-SUN VAN IN VIEW
 			// if(GeoSun.geoSunInView() ) {
-			if(GeoSun.redCarInView() ) {
+			if(GeoSun.geoSunInView() ) {
 				GeoSun.animateGeoSun();		
 			}
 

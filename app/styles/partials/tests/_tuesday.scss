@@ -1,0 +1,30 @@
+.geo-container {
+	width:100%;
+	max-width: 872px;
+	margin: 0 auto;
+	position: relative;
+	overflow-x:hidden;
+	@include prefix(backface-visibility, hidden);
+}
+
+#geometric-sun {
+	position: absolute;
+	right:280px;
+	// width: 1280px; height: 720px;
+	width:100%;
+	// max-width: 1152px;
+	display: block;
+
+	@include prefix(transform, translate3d(0,0,0));
+	@include prefix(transition, translate3d 33.333333ms ease-out);
+
+}
+
+
+.geometric-sun {
+	width: 1279px;
+	position: absolute;
+	left:0; right:0;
+	margin:auto;
+	position: relative;
+}
